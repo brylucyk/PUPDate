@@ -2,7 +2,9 @@ package com.example.blucyk.pupdate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -11,4 +13,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
     }
+
+
 }

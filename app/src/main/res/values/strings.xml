@@ -6,9 +6,6 @@
     // main activity - first visit
     <string name="prompt_puppy_name">What\'s your puppy\'s name?</string>
     <string name="go_btn">Go!</string>
-    // main activity - subsequent visits
-    <string name="welcome">Welcome back!</string>
-
 
     // settings activity
     <string name="h1_settings">Settings</string>
@@ -21,10 +18,33 @@
     // session activity
     <string name="h1_session">Session</string>
     <string name="session_date">MM/DD/YY : HH:MM</string>
-    <string name="h2_activity">Activity</string>
-    <string name="h2_rating">How did DOGNAME do?</string>
-    <string name="activity_one">Activity #1</string>
-    <string name="activity_two">Activity #2</string>
-    <string name="activity_three">Activity #3</string>
+    <string name="h2_activity">Activities</string>
+    <string name="h2_rating">How did Fen do?</string>
+    <string-array name="activities">
+        <item>Bring It</item>
+        <item>Come</item>
+        <item>Down</item>
+        <item>Drop It</item>
+        <item>Heel</item>
+        <item>Leave It</item>
+        <item>"Look at Me"</item>
+        <item>Quiet</item>
+        <item>Roll Over</item>
+        <item>Shake a Paw</item>
+        <item>Sit</item>
+        <item>Speak</item>
+        <item>Stand on Hind Legs</item>
+        <item>Stand Still</item>
+        <item>Stay</item>
+        <item>Touch</item>
+    </string-array>
+    <string name="record">Record Session!</string>
+    <string name="cancel">Cancel</string>
+
+    // navigation activity
+    <string name="h1_navigation">Welcome to PUPDate!</string>
+    <string name="btn_nav_settings">Configure Settings</string>
+    <string name="btn_nav_record">Record Training Session</string>
+    <string name="btn_nav_history">View Training History</string>
 
 </resources>
