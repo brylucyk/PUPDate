@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/petappbg"
-    android:contentDescription="@string/global_logo_desc"
     tools:context=".NavigationActivity">
 
     <LinearLayout
@@ -18,94 +17,98 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/h1Session2"
+                android:id="@+id/h1Navigation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_weight="1"
                 android:fontFamily="@font/montserrat_bold"
-                android:paddingLeft="20dp"
                 android:text="@string/h1_navigation"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="#FFFFFF"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/space2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Space
-                android:layout_width="0dp"
+                android:id="@+id/space2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/logoNA"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/h1Navigation"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/logoSA"
-                android:layout_width="83dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="19dp"
-                android:layout_marginEnd="20dp"
+                android:id="@+id/logoNA"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:baselineAligned="false"
                 android:contentDescription="@string/global_logo_desc"
-                android:src="@drawable/puppylogo_dottedoutline" />
+                android:src="@drawable/puppylogo_dottedoutline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/space2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnNavInstructions"
-                android:layout_width="292dp"
+                android:id="@+id/btnNavInstruct"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/open_sans_bold"
                 android:onClick="onClickInstructions"
                 android:text="@string/btn_nav_instructions"
                 android:textColor="@color/theme_primary"
-                app:layout_constraintBottom_toTopOf="@+id/btnNavSettings"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btnNavRecord"
+                app:layout_constraintEnd_toStartOf="@+id/btnNavSettings"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnNavSettings"
-                android:layout_width="292dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/open_sans_bold"
                 android:onClick="onClickSettings"
                 android:text="@string/btn_nav_settings"
                 android:textColor="@color/theme_primary"
-                app:layout_constraintBottom_toTopOf="@+id/btnNavRecord"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNavInstructions" />
-
-            <Button
-                android:id="@+id/btnNavRecord"
-                android:layout_width="292dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFF"
-                android:fontFamily="@font/open_sans_bold"
-                android:onClick="onClickRecord"
-                android:text="@string/btn_nav_record"
-                android:textColor="@color/theme_primary"
                 app:layout_constraintBottom_toTopOf="@+id/btnNavHistory"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNavSettings" />
+                app:layout_constraintStart_toEndOf="@+id/btnNavInstruct"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btnNavHistory"
-                android:layout_width="292dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/open_sans_bold"
                 android:onClick="onClickHistory"
@@ -114,9 +117,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnNavRecord" />
+                app:layout_constraintStart_toEndOf="@+id/btnNavRecord"
+                app:layout_constraintTop_toBottomOf="@+id/btnNavSettings" />
 
+            <Button
+                android:id="@+id/btnNavRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="@font/open_sans_bold"
+                android:onClick="onClickRecord"
+                android:text="@string/btn_nav_record"
+                android:textColor="@color/theme_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnNavHistory"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnNavInstruct" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

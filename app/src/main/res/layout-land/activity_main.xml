@@ -7,21 +7,44 @@
     android:background="@drawable/petappbg"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/logoMA"
-        android:layout_width="183dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="92dp"
+    <EditText
+        android:id="@+id/editTextPuppyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/open_sans"
+        android:inputType="textPersonName"
+        android:textColor="@color/theme_secondary"
+        android:textColorLink="@color/theme_secondary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/mainGoBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/puppylogo_dottedoutline" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
+
+    <Button
+        android:id="@+id/mainGoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/open_sans_bold"
+        android:onClick="onClickGo"
+        android:text="@string/go_btn"
+        android:textColor="#29B6F6"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPuppyName" />
 
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
@@ -34,69 +57,45 @@
 
     <TextView
         android:id="@+id/appDescription"
-        android:layout_width="244dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_italic"
         android:text="@string/app_description"
         android:textAlignment="center"
         android:textColor="#FFFDFD"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appName" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/promptPuppyName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appDescription" />
-
     <TextView
-        android:id="@+id/promptPuppyName"
+        android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
-        android:text="@string/prompt_puppy_name"
+        android:text="@string/welcome_message"
         android:textColor="#FBFAFA"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextPuppyName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/appDescription" />
 
-    <EditText
-        android:id="@+id/editTextPuppyName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/open_sans"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainGoBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promptPuppyName" />
-
-    <Button
-        android:id="@+id/mainGoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:text="@string/go_btn"
-        android:textColor="#29B6F6"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="177dp"
+        android:layout_height="136dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/global_logo_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPuppyName" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884"
+        app:srcCompat="@drawable/puppylogo_dottedoutline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/petappbg"
+    tools:context=".InstructionsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/h1Instructions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="36dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:paddingLeft="20dp"
+                        android:text="@string/h1_instructions"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="34sp" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/logoIA"
+                        android:layout_width="83dp"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="19dp"
+                        android:baselineAligned="false"
+                        android:contentDescription="@string/global_logo_desc"
+                        android:src="@drawable/puppylogo_bluebg" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/h2AppFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:padding="20dp"
+                    android:text="@string/h2_app_features"
+                    android:textColor="#FBFAFA"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/appFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/theme_primary_variant"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:onClick="onClickNavigate"
+                    android:paddingHorizontal="20dp"
+                    android:text="@string/instruc_app_features"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_secondary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/instruc_record"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatRecordDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingHorizontal="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/instruc_record_desc"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatProg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/instruc_progress"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatProgDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingHorizontal="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/instruc_progress_desc"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/instruc_settings"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/appFeatSettingsDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingHorizontal="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/instruc_settings_desc"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/fifteenMinutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/quote_styling"
+                    android:fontFamily="@font/open_sans_italic"
+                    android:text="@string/instruct_fifteen_minutes"
+                    android:textAlignment="center"
+                    android:textColor="@color/theme_primary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/h2TrainingSessionsInstruct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:padding="20dp"
+                    android:text="@string/h2_training_sessions"
+                    android:textColor="#FBFAFA"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/sessionInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingHorizontal="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/instruc_sessions"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFDFD"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

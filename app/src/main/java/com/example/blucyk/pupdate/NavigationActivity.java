@@ -19,6 +19,11 @@ public class NavigationActivity extends AppCompatActivity {
         startActivity(sessionIntent);
     }
 
+    public void onClickInstructions(View view) {
+        Intent sessionIntent = new Intent(this, InstructionsActivity.class);
+        startActivity(sessionIntent);
+    }
+
     public void onClickSettings(View view) {
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
         startActivity(settingsIntent);
