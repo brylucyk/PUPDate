@@ -1,3 +1,10 @@
+/**
+ * Class Name:  InstructionsActivity.java
+ * Purpose:     The code behind activity_instructions.xml
+ * Author:      Bryanna Lucyk
+ * Date:        June 10, 2021
+ */
+
 package com.example.blucyk.pupdate;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +21,13 @@ public class InstructionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instructions);
     }
 
-
+    /*
+     * The callback function for when the user clicks the button to return to the Navigation.
+     *
+     * @param   View view
+     * @return  void
+     */
     public void onClickNavigate(View view) {
-        Intent sessionIntent = new Intent(this, NavigationActivity.class);
-        startActivity(sessionIntent);
         finish();
     }
 }

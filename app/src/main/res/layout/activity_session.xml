@@ -61,71 +61,67 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/h3SessionDate"
+                    android:id="@+id/textSessionDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/transparent_white_bg"
                     android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/h3_session_date"
+                    android:text="@string/session_date"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/theme_primary"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/h3SessionTime"
+                    android:id="@+id/textSessionTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_weight="1"
+                    android:background="@drawable/transparent_white_bg"
                     android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/h3_session_time"
+                    android:text="@string/session_time"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
+                    android:textColor="@color/theme_primary"
+                    android:textSize="16sp" />
             </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/editTextTime"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:fontFamily="@font/open_sans"
-                    android:inputType="time"
-                    android:textAlignment="textStart"
-                    android:textColor="#FFFFFF"
-                    android:textColorLink="@color/theme_secondary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/editTextDate"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/editTextDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:fontFamily="@font/open_sans"
-                    android:inputType="date"
-                    android:textAlignment="textStart"
-                    android:textColor="#FFFFFF"
-                    android:textColorLink="@color/theme_secondary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/editTextTime"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnChooseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/btn_choose_date" />
+
+                <Button
+                    android:id="@+id/btnChooseTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:onClick="showTimePickerDialog"
+                    android:text="@string/btn_choose_time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
@@ -164,7 +160,7 @@
                     android:id="@+id/activityOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_styling"
                     android:entries="@array/activities"
@@ -187,7 +183,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:theme="@style/RatingBar"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -203,7 +200,7 @@
                     android:id="@+id/activityTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_styling"
                     android:entries="@array/activities"
@@ -225,7 +222,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:theme="@style/RatingBar"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -241,7 +239,7 @@
                     android:id="@+id/activityThree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_styling"
                     android:entries="@array/activities"
@@ -263,7 +261,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:theme="@style/RatingBar"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -279,9 +278,11 @@
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/open_sans_bold"
+                    android:onClick="onSubmit"
                     android:text="@string/record"
                     android:textColor="@color/theme_primary"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -295,12 +296,13 @@
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:backgroundTint="@color/theme_secondary"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/theme_primary"
                     android:fontFamily="@font/open_sans_bold"
                     android:onClick="onClickCancel"
                     android:text="@string/cancel"
-                    android:textColor="@color/theme_secondary_variant"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

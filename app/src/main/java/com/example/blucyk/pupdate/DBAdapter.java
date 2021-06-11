@@ -30,6 +30,7 @@ public class DBAdapter {
     // Table Keys
     static final String KEY_SESSION_ID = "Id";
     static final String KEY_SESSION_DATE = "Date";
+    static final String KEY_SESSION_TIME = "Time";
     static final String KEY_ACTIVITY_ID = "Id";
     static final String KEY_ACTIVITY_NAME = "Name";
     static final String KEY_ACTIVITY_RATING = "Rating";
@@ -75,7 +76,8 @@ public class DBAdapter {
             try {
                 db.execSQL("create table " + DT_SESSIONS
                            + "(" + KEY_SESSION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                           + KEY_SESSION_DATE + " STRING)");
+                           + KEY_SESSION_DATE + " STRING,"
+                           + KEY_SESSION_TIME + " STRING)");
                 db.execSQL("create table " + DT_ACTIVITIES
                            + "(" + KEY_ACTIVITY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                            + KEY_ACTIVITY_NAME + " TEXT)");
@@ -83,7 +85,7 @@ public class DBAdapter {
                         + "(" + KEY_SESSION_ACTIVITY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + KEY_FK_SESSION_ID + " INTEGER, "
                         + KEY_FK_ACTIVITY_ID + " INTEGER, "
-                        + KEY_ACTIVITY_RATING + " INTEGER, "
+                        + KEY_ACTIVITY_RATING + " REAL, "
                         + "FOREIGN KEY (Session_Id) REFERENCES "
                         + DT_SESSIONS + "(" + KEY_SESSION_ID + "),"
                         + "FOREIGN KEY (Activity_id) REFERENCES "
@@ -103,7 +105,6 @@ public class DBAdapter {
                 e.printStackTrace();
             }
         }
-
 
         /*
          * Creates the SQLite Database. Populates the DT_ACTIVITIES table.
@@ -152,12 +153,10 @@ public class DBAdapter {
      * @param   void
      * @return  long (the session id in the DT_SESSIONS table)
      */
-    public long insertSession() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
-        String currentDateandTime = sdf.format(new Date());
-
+    public long insertSession(String date, String time) {
         ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_SESSION_DATE, currentDateandTime);
+        initialValues.put(KEY_SESSION_DATE, date);
+        initialValues.put(KEY_SESSION_TIME, time);
         return db.insert(DT_SESSIONS, null, initialValues);
     }
 
@@ -167,10 +166,10 @@ public class DBAdapter {
      * @param   long sessionId, String name, int rating
      * @return  long (the session id in the DT_SESSIONS_ACTIVITIES table)
      */
-    public long addActivityToSession(long sessionId, String name, int rating) {
+    public long addActivityToSession(long sessionId, String name, float rating) {
         // retrieve the activity id from DT_ACTIVITIES
         Cursor cursor = this.db.rawQuery("select " + KEY_ACTIVITY_ID + " from " + DT_ACTIVITIES
-                + " where " + KEY_ACTIVITY_NAME + "='Sit'", null);
+                + " where " + KEY_ACTIVITY_NAME + " = '" + name + "'", null);
 
         cursor.moveToFirst();
         int retrievedActivityId = cursor.getInt(0);
@@ -182,9 +181,6 @@ public class DBAdapter {
 
         return db.insert(DT_SESSIONS_ACTIVITIES, null, initialValues);
     }
-
-    // 
-
 
     /*
      * Retrieves the name of an Activity from the DT_ACTIVITIES table.
@@ -212,41 +208,83 @@ public class DBAdapter {
         return cursor.getInt(0);
     }
 
-//
-//    //---deletes a particular contact---
-//    public boolean deleteContact(long rowId)
-//    {
-//        return db.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
-//    }
-//
-//    //---retrieves all the contacts---
-//    public Cursor getAllContacts()
-//    {
-//        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NAME,
-//                KEY_EMAIL, KEY_AGE}, null, null, null, null, null);
-//    }
-//
-//    //---retrieves a particular contact---
-//    public Cursor getContact(long rowId) throws SQLException
-//    {
-//        Cursor mCursor =
-//                db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-//                                KEY_NAME, KEY_EMAIL,KEY_AGE}, KEY_ROWID + "=" + rowId, null,
-//                        null, null, null, null);
-//        if (mCursor != null) {
-//            mCursor.moveToFirst();
-//        }
-//        return mCursor;
-//    }
-//
-//    //---updates a contact---
-//    public boolean updateContact(long rowId, String name, String email,int age)
-//    {
-//        ContentValues args = new ContentValues();
-//        args.put(KEY_NAME, name);
-//        args.put(KEY_EMAIL, email);
-//        args.put(KEY_AGE, age);
-//        return db.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
-//    }
+    /*
+     * Retrieves all sessions stored in the DT_SESSIONS table.
+     *
+     * @param   void
+     * @return  cursor storing all records from DT_SESSIONS
+     */
+    public Cursor getAllSessions() {
+        return db.query(DT_SESSIONS, new String[] {KEY_SESSION_ID, KEY_SESSION_DATE,
+                KEY_SESSION_TIME}, null, null, null, null, KEY_SESSION_ID + " DESC");
+    }
+
+    /*
+     * Retrieves the activity names and ratings associated with a specific training session.
+     *
+     * @param   int sessionId
+     * @return  cursor storing the activity names and ratings
+     */
+    public Cursor getSessionActivities(int sessionId) {
+        Cursor cursor = this.db.rawQuery(
+                "select " + KEY_ACTIVITY_NAME + ", " + KEY_ACTIVITY_RATING
+                        + " from " + DT_SESSIONS_ACTIVITIES + " INNER JOIN " + DT_ACTIVITIES
+                        + " ON " + DT_ACTIVITIES + "." + KEY_ACTIVITY_ID
+                        + " = " + DT_SESSIONS_ACTIVITIES + "." + KEY_FK_ACTIVITY_ID
+                        + " where " + KEY_FK_SESSION_ID + " = " + sessionId, null);
+        return cursor;
+    }
+
+    /*
+     * Deletes a specific training session from the database.
+     *
+     * Note: Will first try to delete from the DT_SESSION_ACTIVITIES table.
+     *       If this does not work, will not proceed with trying to delete
+     *       from the DT_SESSIONS table.
+     *
+     * @param   int sessionId
+     * @return  boolean (true if deleted, false if not)
+     */
+    public boolean deleteSession(long sessionId) {
+
+        if(deleteSessionActivities(sessionId)) {
+            return db.delete(DT_SESSIONS, KEY_SESSION_ID + "=" + sessionId, null) > 0;
+        }
+        else {
+          return false;
+        }
+    }
+
+    /*
+     * Deletes all activities associated with a particular session.
+     *
+     * @param   int sessionId
+     * @return  boolean (true if deleted, false if not)
+     */
+    public boolean deleteSessionActivities(long sessionId) {
+        return db.delete(DT_SESSIONS_ACTIVITIES, KEY_FK_SESSION_ID + "=" + sessionId, null) > 0;
+    }
+
+    /*
+     * Deletes all training sessions from the database.
+     *
+     * @param   void
+     * @return  int (number of rows deleted)
+     */
+    public int deleteSessions() {
+        deleteAllSessionActivities();
+
+        return db.delete(DT_SESSIONS, "1", null);
+    }
+
+    /*
+     * Deletes all session activities from the database.
+     *
+     * @param   void
+     * @return  int (number of rows deleted)
+     */
+    public int deleteAllSessionActivities() {
+        return db.delete(DT_SESSIONS_ACTIVITIES, "1", null);
+    }
 
 }
