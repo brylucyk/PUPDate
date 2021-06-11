@@ -128,6 +128,8 @@ public class SessionActivity extends AppCompatActivity{
         toast.setGravity(Gravity.CENTER_VERTICAL
                               | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
+
+        finish();
     }
 
     public void onClickCancel(View view) {

@@ -217,7 +217,7 @@ public class DBAdapter {
      * @param   int sessionId
      * @return  boolean (true if deleted, false if not)
      */
-    public boolean deleteSession(long sessionId) {
+    public boolean deleteSession(int sessionId) {
 
         if(deleteSessionActivities(sessionId)) {
             return db.delete(DT_SESSIONS, KEY_SESSION_ID + "=" + sessionId, null) > 0;
@@ -245,7 +245,6 @@ public class DBAdapter {
      */
     public int deleteSessions() {
         deleteAllSessionActivities();
-
         return db.delete(DT_SESSIONS, "1", null);
     }
 

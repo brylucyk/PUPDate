@@ -12,9 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +39,12 @@ public class HistoryActivity extends AppCompatActivity {
     RecyclerView.Adapter recyclerViewAdapter;
     RecyclerView.LayoutManager recyclerViewManager;
 
-    private DBAdapter db;
+    private static DBAdapter db;
+    static Activity historyActivity;
+
+    public static Context context;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,10 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerViewManager = new LinearLayoutManager( getApplicationContext() );
         recyclerView.setLayoutManager( recyclerViewManager );
         recyclerView.setHasFixedSize( true );
+
+        // for deleteSession()
+        context = getApplicationContext();
+        historyActivity = this;
 
         trainingSessionArrayList = new ArrayList<TrainingSession>();
 
@@ -111,6 +124,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         recyclerViewAdapter = new RecyclerViewerAdapter( HistoryActivity.this, trainingSessionArrayList);
         recyclerView.setAdapter( recyclerViewAdapter );
+
     }
 
     /*
@@ -204,11 +218,23 @@ public class HistoryActivity extends AppCompatActivity {
      * @param   View view
      * @return  void
      */
-    public void deleteSession(View view) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Session deleted!", Toast.LENGTH_LONG);
+    public static void deleteSession(int id) {
+        Toast toast;
+
+        db.open();
+        if(db.deleteSession(id)) {
+            toast = Toast.makeText(context, "Session cleared", Toast.LENGTH_LONG);
+        }
+        else {
+            toast = Toast.makeText(context, "Sorry, sessions were not deleted!", Toast.LENGTH_LONG);
+        }
         toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
+        db.close();
 
-        // refresh page?
+        historyActivity.finish();
+        Intent settingsIntent = new Intent(context, HistoryActivity.class);
+        historyActivity.startActivity(settingsIntent);
     }
+
 }

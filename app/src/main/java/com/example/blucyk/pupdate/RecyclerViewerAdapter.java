@@ -8,6 +8,7 @@
 package com.example.blucyk.pupdate;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,15 @@ public class RecyclerViewerAdapter extends RecyclerView.Adapter<RecyclerViewerAd
         holder.ratingBarActivity3.setRating(
                 trainingSessionArrayList.get(position).getActivities().get(2).getActivityRating());
         holder.ratingBarActivity3.setEnabled(false);
+
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = trainingSessionArrayList.get(position).getId();
+
+                HistoryActivity.deleteSession(id);
+            }
+        });
     }
 
     @Override
