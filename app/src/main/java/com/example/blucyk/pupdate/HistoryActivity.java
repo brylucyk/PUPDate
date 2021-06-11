@@ -1,8 +1,8 @@
-/**
- * Class Name:  HistoryActivity.java
- * Purpose:     The code behind activity_history.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  HistoryActivity.java
+  Purpose:     The code behind activity_history.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;

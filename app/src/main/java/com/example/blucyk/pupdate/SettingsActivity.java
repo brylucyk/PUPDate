@@ -1,8 +1,8 @@
-/**
- * Class Name:  SettingsActivity.java
- * Purpose:     The code behind activity_setting.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  SettingsActivity.java
+  Purpose:     The code behind activity_setting.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -85,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
 
         String newName = settings.getString("puppyName", "your puppy");
-        if(newName == puppyName) {
+        if(newName.equals(puppyName)) {
             // alert success
             Toast toast = Toast.makeText(getApplicationContext(), "Name updated!",
                                                                         Toast.LENGTH_SHORT);

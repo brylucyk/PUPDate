@@ -1,8 +1,8 @@
-/**
- * Class Name:  NavigationActivity.java
- * Purpose:     The code behind activity_navigation.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  NavigationActivity.java
+  Purpose:     The code behind activity_navigation.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;

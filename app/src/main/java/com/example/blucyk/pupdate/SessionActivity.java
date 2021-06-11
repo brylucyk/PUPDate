@@ -1,8 +1,8 @@
-/**
- * Class Name:  SessionActivity.java
- * Purpose:     The code behind activity_session.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  SessionActivity.java
+  Purpose:     The code behind activity_session.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
@@ -57,7 +57,7 @@ public class SessionActivity extends AppCompatActivity{
                 dpd = new DatePickerDialog(SessionActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int mYear, int mMonth, int mDay) {
-                        sessionDate.setText(mYear+ "/" + (mMonth + 1)+ "/" + mDay);
+                        sessionDate.setText(mYear + "/" + (mMonth + 1)+ "/" + mDay);
                     }
                 }, day, month, year);
                 dpd.updateDate(year, month, day);
@@ -165,7 +165,7 @@ public class SessionActivity extends AppCompatActivity{
             TextView sessionTime = getActivity().findViewById(R.id.textSessionTime);
             String chosenTime;
 
-            int convertedHour = 0;
+            int convertedHour;
 
             if(hourOfDay == 0) {
                 convertedHour = 12;

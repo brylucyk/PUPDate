@@ -8,6 +8,7 @@
     <string name="app_description">Schedule, track and rate your puppy\'s training progress</string>
     // main activity - first visit
     <string name="welcome_message">What\'s your puppy\'s name?</string>
+    <string name="welcome_back">Is %1$s ready for training?</string>
     <string name="go_btn">Go!</string>
 
     // instructions activity

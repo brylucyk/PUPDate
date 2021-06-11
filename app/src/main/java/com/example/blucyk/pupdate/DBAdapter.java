@@ -1,9 +1,9 @@
-/**
- * Class Name:  DBAdapter.java
- * Purpose:     Creates the SQLite database and access methods.
- *
- * Original file created by Lianne Wong on 9/28/2015.
- * Modified by Bryanna Lucyk on 05/29/2021.
+/*
+  Class Name:  DBAdapter.java
+  Purpose:     Creates the SQLite database and access methods.
+
+  Original file created by Lianne Wong on 9/28/2015.
+  Modified by Bryanna Lucyk on 05/29/2021.
  */
 
 package com.example.blucyk.pupdate;
@@ -15,9 +15,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class DBAdapter {
 
@@ -96,9 +93,9 @@ public class DBAdapter {
 
             // loads activity names into the DT_ACTIVITIES table
             try {
-                for(int i = 0; i < ACTIVITY_NAMES.length; i++) {
+                for (String activityName : ACTIVITY_NAMES) {
                     ContentValues initialValues = new ContentValues();
-                    initialValues.put(KEY_ACTIVITY_NAME, ACTIVITY_NAMES[i]);
+                    initialValues.put(KEY_ACTIVITY_NAME, activityName);
                     db.insert(DT_ACTIVITIES, null, initialValues);
                 }
             } catch (SQLException e) {
@@ -126,7 +123,7 @@ public class DBAdapter {
      * Opens the Database.
      *
      * @param   void
-     * @return  void
+     * @return  DBAdapter
      * @throws  SQLException
      *
      */
@@ -179,33 +176,9 @@ public class DBAdapter {
         initialValues.put(KEY_FK_ACTIVITY_ID, retrievedActivityId);
         initialValues.put(KEY_ACTIVITY_RATING, rating);
 
+        cursor.close();
+
         return db.insert(DT_SESSIONS_ACTIVITIES, null, initialValues);
-    }
-
-    /*
-     * Retrieves the name of an Activity from the DT_ACTIVITIES table.
-     *
-     * @param   int id
-     * @return  String (activity name)
-     */
-    public String getActivityName(int id) {
-        Cursor cursor = this.db.rawQuery("select " + KEY_ACTIVITY_NAME + " from " + DT_ACTIVITIES
-                + " where " + KEY_ACTIVITY_ID + "=" + id, null);
-        cursor.moveToFirst();
-        return cursor.getString(0);
-    }
-
-    /*
-     * Retrieves the rating of an Activity from the DT_SESSION_ACTIVITIES table.
-     *
-     * @param   int id
-     * @return  int (activity rating)
-     */
-    public int getActivityRating(int id) {
-        Cursor cursor = this.db.rawQuery("select " + KEY_ACTIVITY_RATING + " from " + DT_ACTIVITIES
-                + " where " + KEY_ACTIVITY_ID + "=" + id, null);
-        cursor.moveToFirst();
-        return cursor.getInt(0);
     }
 
     /*
@@ -226,13 +199,12 @@ public class DBAdapter {
      * @return  cursor storing the activity names and ratings
      */
     public Cursor getSessionActivities(int sessionId) {
-        Cursor cursor = this.db.rawQuery(
+        return this.db.rawQuery(
                 "select " + KEY_ACTIVITY_NAME + ", " + KEY_ACTIVITY_RATING
                         + " from " + DT_SESSIONS_ACTIVITIES + " INNER JOIN " + DT_ACTIVITIES
                         + " ON " + DT_ACTIVITIES + "." + KEY_ACTIVITY_ID
                         + " = " + DT_SESSIONS_ACTIVITIES + "." + KEY_FK_ACTIVITY_ID
                         + " where " + KEY_FK_SESSION_ID + " = " + sessionId, null);
-        return cursor;
     }
 
     /*

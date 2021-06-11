@@ -1,14 +1,13 @@
-/**
- * Class Name:  RecyclerViewAdapter
- * Purpose:     Creates and populates the RecyclerView for Recorded Activities.
- * Modified By: Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  RecyclerViewAdapter
+  Purpose:     Creates and populates the RecyclerView for Recorded Activities.
+  Modified By: Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

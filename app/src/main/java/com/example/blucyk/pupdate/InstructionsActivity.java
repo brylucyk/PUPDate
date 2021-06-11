@@ -1,15 +1,14 @@
-/**
- * Class Name:  InstructionsActivity.java
- * Purpose:     The code behind activity_instructions.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  InstructionsActivity.java
+  Purpose:     The code behind activity_instructions.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 

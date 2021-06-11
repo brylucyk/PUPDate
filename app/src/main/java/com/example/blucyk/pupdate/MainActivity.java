@@ -1,8 +1,8 @@
-/**
- * Class Name:  MainActivity.java
- * Purpose:     The code behind activity_main.xml
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  MainActivity.java
+  Purpose:     The code behind activity_main.xml
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DBAdapter db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         // display welcome back message for returning user
         if(!puppyName.equals("your puppy")) {
             TextView welcomeMessage = findViewById(R.id.welcomeMessage);
-            welcomeMessage.setText("Is " + puppyName + " ready for training?");
+            welcomeMessage.setText(String.format(getResources().getString(R.string.welcome_back),
+                                   puppyName));
             EditText inputPuppyName = findViewById(R.id.editTextPuppyName);
             inputPuppyName.setVisibility(View.GONE);
         }
@@ -54,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(!puppyName.equals("your puppy")) {
             TextView welcomeMessage = findViewById(R.id.welcomeMessage);
-            welcomeMessage.setText("Is " + puppyName + " ready for training?");
+            welcomeMessage.setText(String.format(getResources().getString(R.string.welcome_back),
+                                    puppyName));
             EditText inputPuppyName = findViewById(R.id.editTextPuppyName);
             inputPuppyName.setVisibility(View.GONE);
         }

@@ -1,9 +1,9 @@
-/**
- * Class Name:  TrainingActivity.java
- * Purpose:     Class for TrainingSession objects containing the user's training session
- *              information recorded in the database.
- * Author:      Bryanna Lucyk
- * Date:        June 10, 2021
+/*
+  Class Name:  TrainingActivity.java
+  Purpose:     Class for TrainingSession objects containing the user's training session
+               information recorded in the database.
+  Author:      Bryanna Lucyk
+  Date:        June 10, 2021
  */
 
 package com.example.blucyk.pupdate;
