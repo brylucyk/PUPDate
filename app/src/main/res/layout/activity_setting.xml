@@ -32,7 +32,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="0dp"
                     android:text="@string/h1_settings"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
@@ -41,7 +42,8 @@
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    tools:ignore="InefficientWeight" />
 
                 <ImageView
                     android:id="@+id/logoSA"
@@ -50,6 +52,7 @@
                     android:layout_marginStart="19dp"
                     android:layout_marginTop="19dp"
                     android:baselineAligned="false"
+                    android:contentDescription="@string/global_logo_desc"
                     android:src="@drawable/puppylogo_bluebg" />
 
             </LinearLayout>
@@ -187,9 +190,11 @@
                     android:id="@+id/editTextChangePuppyName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:autofillHints="@string/autofill_puppy_name"
                     android:ems="10"
                     android:fontFamily="@font/open_sans"
                     android:inputType="textPersonName"
+                    android:labelFor="@id/h2ChangeName"
                     android:paddingHorizontal="20dp"
                     android:paddingBottom="20dp"
                     android:textColor="#FFFFFF"
@@ -199,7 +204,8 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="LabelFor" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

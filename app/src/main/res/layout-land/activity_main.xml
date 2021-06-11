@@ -11,9 +11,11 @@
         android:id="@+id/editTextPuppyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="@string/autofill_puppy_name"
         android:ems="10"
         android:fontFamily="@font/open_sans"
         android:inputType="textPersonName"
+        android:labelFor="@id/welcomeMessage"
         android:textColor="@color/theme_secondary"
         android:textColorLink="@color/theme_secondary"
         android:textSize="24sp"
@@ -21,7 +23,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/mainGoBtn"

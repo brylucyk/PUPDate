@@ -16,44 +16,37 @@
             android:orientation="vertical" >
 
             <LinearLayout
-                android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/h1Instructions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="0dp"
+                    android:text="@string/h1_instructions"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34sp" />
 
-                    <TextView
-                        android:id="@+id/h1Instructions"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="36dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:paddingLeft="20dp"
-                        android:text="@string/h1_instructions"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="34sp" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:id="@+id/logoIA"
-                        android:layout_width="83dp"
-                        android:layout_height="75dp"
-                        android:layout_marginStart="19dp"
-                        android:layout_marginTop="19dp"
-                        android:baselineAligned="false"
-                        android:contentDescription="@string/global_logo_desc"
-                        android:src="@drawable/puppylogo_bluebg" />
-
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/logoIA"
+                    android:layout_width="83dp"
+                    android:layout_height="75dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="19dp"
+                    android:baselineAligned="false"
+                    android:contentDescription="@string/global_logo_desc"
+                    android:src="@drawable/puppylogo_bluebg" />
 
             </LinearLayout>
 

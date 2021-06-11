@@ -3,6 +3,9 @@
     // global
     <string name="global_logo_desc">PUPDate Logo</string>
 
+    // auto-fill hints
+    <string name="autofill_puppy_name">Your puppy\'s name</string>
+
     // main activity
     <string name="app_name">PUPDate</string>
     <string name="app_description">Schedule, track and rate your puppy\'s training progress</string>
