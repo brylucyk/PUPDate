@@ -9,7 +9,6 @@ https://youtu.be/Wv9V538oRYI
 
 ## Screenshots - Portrait Mode  
 ![Main activity in portrait mode](screenshots/portrait_screen1.png "Portrait - Main View")
-![Portrait view of instructions activity](screenshots/portrait_screen2.png "Portrait - Instructions")
 ![Portrait view of settings activity](screenshots/portrait_screen3.png "Portrait - Settings")
 ![Portrait view of record session activity](screenshots/portrait_screen3.png "Portrait - Record Session")
 ![Portrait view of view progress activity](screenshots/portrait_screen3.png "Portrait - View progress")
